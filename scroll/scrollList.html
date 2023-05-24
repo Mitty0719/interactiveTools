@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .scroll-con {
+        display: flex;
+        width: 100%;
+        height: 2000px;
+        gap: 80px;
+      }
+      .scroll-col {
+        flex: 1;
+        height: 100%;
+      }
+      .scroll-item {
+        width: 100%;
+        min-height: 200px;
+        margin-bottom: 80px;
+      }
+      .scroll-item.hType1 {
+        height: 300px;
+        background-color: dodgerblue;
+      }
+      .scroll-item.hType2 {
+        height: 400px;
+        background-color: coral;
+      }
+      .scroll-item.hType3 {
+        height: 500px;
+        background-color: greenyellow;
+      }
+    </style>
+    <script>
+      let scrollCon = null;
+
+      window.onload = () => {
+        new MoveItem();
+      };
+
+      class MoveItem {
+        constructor() {
+          this.target = document.querySelector(".scroll-con");
+          this.cols = [];
+          this.originX = this.target.clientLeft || 0;
+          this.originY = this.target.clientTop || 0;
+          this.targetX = 0;
+          this.targetY = 0;
+          this.centerX = window.innerWidth / 2;
+          this.centerY = window.innerHeight / 2;
+          this.timer = null;
+
+          window.addEventListener("mousemove", this.moveMouse.bind(this));
+          window.addEventListener("scroll", this.scrollWindow.bind(this));
+
+          for (const col of this.target.children) {
+            this.cols.push(new MoveItemColumn(col));
+          }
+
+          setInterval(() => this.loop.call(this), 10);
+        }
+
+        loop() {
+          this.moveItem();
+
+          for (const col of this.cols) {
+            col.loop();
+          }
+        }
+
+        moveItem() {
+          // const s = -0.0008;
+          // this.originX += (this.targetX - this.originX) * s;
+          // this.originY += (this.targetY - this.originY) * s;
+
+          const s = -0.08;
+          this.originX = this.targetX * s;
+          this.originY = this.targetY * s;
+          this.target.style.transform = `translate(${this.originX}px, ${this.originY}px) scale(0.8)`;
+        }
+
+        moveMouse(e) {
+          this.targetX = e.clientX - this.centerX;
+          this.targetY = e.clientY - this.centerY;
+        }
+        scrollWindow(e) {
+          if (this.timer !== null) {
+            clearTimeout(this.timer);
+          }
+          this.timer = setTimeout(() => {
+            for (const col of this.cols) {
+              col.scrollWindow(scrollY);
+            }
+          }, 150);
+        }
+      }
+
+      class MoveItemColumn {
+        constructor(item) {
+          this.target = item;
+          this.originY = this.target.clientTop || 0;
+          this.prevTargetY = 0;
+          this.targetY = 0;
+          this.speed = (Math.random() * 3) / 100 + 0.005;
+          // this.speed = 0.05;
+        }
+
+        loop() {
+          this.originY += (this.targetY - this.originY) * this.speed;
+          this.target.style.transform = `translateY(${this.originY}px)`;
+        }
+
+        scrollWindow(scrollY) {
+          if (this.prevTargetY != scrollY) {
+            this.targetY = scrollY;
+            this.prevTargetY = scrollY;
+            console.log(this.targetY);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div style="overflow: hidden">
+      <div class="scroll-con" style="transform: scale(0.8)">
+        <div class="scroll-col">
+          <div class="scroll-item hType1"></div>
+          <div class="scroll-item hType2"></div>
+          <div class="scroll-item hType2"></div>
+        </div>
+        <div class="scroll-col">
+          <div class="scroll-item hType3"></div>
+          <div class="scroll-item hType2"></div>
+          <div class="scroll-item hType3"></div>
+        </div>
+        <div class="scroll-col">
+          <div class="scroll-item hType1"></div>
+          <div class="scroll-item hType2"></div>
+          <div class="scroll-item hType3"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
