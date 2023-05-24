@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/reset.css">
+  <link rel="stylesheet" href="../static/css/main.css">
+  <script src="../static/js/scrollEvent.js"></script>
+  <title>vision</title>
+</head>
+<style>
+  .item-active {
+    background-color: black !important;
+  }
+</style>
+<script>
+  window.onload = () => {
+    const eventObj = new ScrollEvent();
+
+    eventObj.addScrollEvent({id: 'item001', style: 'opacity', startRatio: 0.1, endRatio: 0.2, startValue: 0, endValue: 1});
+    eventObj.addScrollEvent({id: 'item001', style: 'top', startRatio: 0.5, endRatio: 0.6, startValue: 100, endValue: 200, suffix: 'px'});
+    eventObj.addScrollEventTransform({id: 'item001', transformStyle: [
+      {style: 'scale', startValue: 1, endValue: 2 },
+      {style: 'translate', startValue: 0, endValue: 200, suffix: 'px' },
+    ], startRatio: 0.5, endRatio: 0.6});
+    eventObj.addScrollClass({id: 'item001', classList: ['item-active'], startRatio: 0.5, endRatio: 1})
+
+    eventObj.addScrollEvent({id: 'item002', style: 'opacity', startRatio: 0.6, endRatio: 0.7, startValue: 0, endValue: 1});
+    eventObj.addScrollEvent({id: 'item003', style: 'opacity', startRatio: 0.8, endRatio: 0.9, startValue: 0, endValue: 1});
+    eventObj.addScrollEvent({id: 'item004', style: 'opacity', startRatio: 0.3, endRatio: 0.4, startValue: 0, endValue: 1});
+    eventObj.addScrollEvent({id: 'item005', style: 'opacity', startRatio: 0.2, endRatio: 0.3, startValue: 0, endValue: 1});
+  }
+</script>
+<body>
+  <div class="vision-container">
+    <section id="section001" class="scroll-section" style="height: 1080px; background-color: dodgerblue; opacity: 0.1">
+      <div id="item001" style="width: 100px; height: 100px; background-color: red; position: fixed; top: 100px; left: 100px; opacity: 0">
+      </div>
+      <div id="item002" style="width: 100px; height: 100px; background-color: red; position: fixed; top: 100px; left: 300px; opacity: 0">
+      </div>
+      <div id="item003" style="width: 100px; height: 100px; background-color: red; position: fixed; top: 100px; left: 500px; opacity: 0">
+      </div>
+      <div id="item004" style="width: 100px; height: 100px; background-color: red; position: fixed; top: 100px; left: 700px; opacity: 0">
+      </div>
+      <div id="item005" style="width: 100px; height: 100px; background-color: red; position: fixed; top: 100px; left: 900px; opacity: 0">
+      </div>
+    </section>
+    <section id="section002" class="scroll-section" style="height: 1800px; background-color: greenyellow; opacity: 0.1"></section>
+    <section id="section003" class="scroll-section" style="height: 2000px; background-color: coral; opacity: 0.1"></section>
+    <section id="section004" class="scroll-section" style="height: 890px; background-color: cornflowerblue; opacity: 0.1"></section>
+    <section id="section005" class="scroll-section" style="height: 1080px; background-color: silver; opacity: 0.1"></section>
+  </div>
+</body>
+</html>
