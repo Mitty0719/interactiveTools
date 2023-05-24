@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./static/css/reset.css"/>
+  <link rel="stylesheet" href="./static/css/verticalTree.css"/>
+  <script src="./static/js/verticalTree.js"></script>
+  <script>
+    window.onload = () => {
+      const data = [
+        { id: 'menu_001', title: 'menu_001', children: [
+          { id: 'menu_101', title: 'menu_101', children: [
+            { id: 'menu_201', title: 'menu_201', children: [
+              { id: 'menu_301', title: 'menu_301' },
+              { id: 'menu_302', title: 'menu_302' },
+              { id: 'menu_303', title: 'menu_303' },
+              { id: 'menu_304', title: 'menu_304' },
+              { id: 'menu_305', title: 'menu_305' },
+              { id: 'menu_306', title: 'menu_306' }
+            ] }
+          ] }
+        ] },
+        { id: 'menu_002', title: 'menu_002', children: [
+          { id: 'menu_101', title: 'menu_101' },
+          { id: 'menu_102', title: 'menu_102' },
+          { id: 'menu_103', title: 'menu_103' },
+          { id: 'menu_104', title: 'menu_104' },
+          { id: 'menu_105', title: 'menu_105' },
+          { id: 'menu_106', title: 'menu_106' }
+        ] },
+        { id: 'menu_003', title: 'menu_003' },
+        { id: 'menu_004', title: 'menu_004' },
+        { id: 'menu_005', title: 'menu_005' },
+        { id: 'menu_006', title: 'menu_006' },
+        { id: 'menu_007', title: 'menu_007' },
+        { id: 'menu_008', title: 'menu_008', children: [
+          { id: 'menu_101', title: 'menu_101' },
+          { id: 'menu_102', title: 'menu_102', children: [
+            { id: 'menu_201', title: 'menu_201' },
+            { id: 'menu_202', title: 'menu_202', children: [
+              { id: 'menu_301', title: 'menu_301' },
+              { id: 'menu_302', title: 'menu_302' },
+              { id: 'menu_303', title: 'menu_303' }
+            ] },
+            { id: 'menu_203', title: 'menu_203', children: [
+              { id: 'menu_301', title: 'menu_301' },
+              { id: 'menu_302', title: 'menu_302' },
+              { id: 'menu_303', title: 'menu_303' }
+            ] },
+          ] },
+          { id: 'menu_103', title: 'menu_103' },
+          { id: 'menu_104', title: 'menu_104' },
+          { id: 'menu_105', title: 'menu_105' },
+          { id: 'menu_106', title: 'menu_106' }
+        ] },
+        { id: 'menu_009', title: 'menu_009' },
+        { id: 'menu_010', title: 'menu_010' },
+        { id: 'menu_011', title: 'menu_011' },
+        { id: 'menu_012', title: 'menu_012' },
+      ];
+      VerticalTree.init('tree-con', data);
+    }
+  </script>
+</head>
+<body>
+  <div id="tree-con"></div>
+</body>
+</html>
