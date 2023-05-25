@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./horizontalSlider.js"></script>
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      HorizontalSlider.init({id: 'horizontal-slider'});
+      // HorizontalSlider.init({id: 'horizontal-slider', interval: 1000, timeout: 1000, leftButton: false, rightButton: false});
+    }
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <header></header>
+    <section class="scroll-section" style="display: flex; height: 500px">
+      <div style="width: 100px; height: 100%; background-color: dodgerblue"></div>
+      <div id="horizontal-slider" style="flex: 1 1 0; height: 100%">
+        <div class="slider-item" style="height: 100%; opacity: 0.1; background-color: red"></div>
+        <div class="slider-item" style="height: 100%; opacity: 0.1; background-color: green"></div>
+        <div class="slider-item" style="height: 100%; opacity: 0.1; background-color: yellow"></div>
+      </div>
+      <div style="width: 100px; height: 100%; background-color: cadetblue"></div>
+    </section>
+    <section class="scroll-section"></section>
+    <section class="scroll-section"></section>
+  </div>
+</body>
+</html>
