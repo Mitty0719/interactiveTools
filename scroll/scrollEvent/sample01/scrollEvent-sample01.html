@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./main.css">
+  <script src="../scrollEvent.js"></script>
+  <title>Document</title>
+  <script>
+    window.onload = () => {
+      const eventObj = new ScrollEvent();
+
+      eventObj.addScrollClass({id: 'card-text-con', classList: ['sticky-elem'], startRatio: 0, endRatio: 1});
+      eventObj.addScrollClass({id: 'card-con', classList: ['sticky-elem'], startRatio: 0, endRatio: 1});
+
+      eventObj.addScrollEventTransform({id: 'card-item-02', transformStyle: [
+        {style: 'translateX', startValue: 30, endValue: 30, suffix: 'px' },
+        {style: 'translateY', startValue: 2000, endValue: 20, suffix: 'px' }
+      ], startRatio: 0.1, endRatio: 0.2});
+      eventObj.addScrollEventTransform({id: 'card-item-03', transformStyle: [
+        {style: 'translateX', startValue: -30, endValue: -30, suffix: 'px' },
+        {style: 'translateY', startValue: 2000, endValue: 40, suffix: 'px' }
+      ], startRatio: 0.2, endRatio: 0.3});
+      eventObj.addScrollEventTransform({id: 'card-item-04', transformStyle: [
+        {style: 'translateX', startValue: 50, endValue: 50, suffix: 'px' },
+        {style: 'translateY', startValue: 2000, endValue: 60, suffix: 'px' }
+      ], startRatio: 0.3, endRatio: 0.4});
+      eventObj.addScrollEventTransform({id: 'card-item-05', transformStyle: [
+        {style: 'translateX', startValue: -80, endValue: -80, suffix: 'px' },
+        {style: 'translateY', startValue: 2000, endValue: 80, suffix: 'px' }
+      ], startRatio: 0.4, endRatio: 0.5});
+      eventObj.addScrollEvent({id: 'card-text-con', style: 'opacity', startRatio: 0.4, endRatio: 0.5, startValue: 1, endValue: 0});
+
+
+      eventObj.addScrollEvent({id: 'card-item-01', style: 'top', startRatio: 0.5, endRatio: 0.7, startValue: 300, endValue: 600, suffix: 'px'});
+      eventObj.addScrollEvent({id: 'card-item-02', style: 'top', startRatio: 0.5, endRatio: 0.7, startValue: 300, endValue: 600, suffix: 'px'});
+      eventObj.addScrollEvent({id: 'card-item-03', style: 'top', startRatio: 0.5, endRatio: 0.7, startValue: 300, endValue: 600, suffix: 'px'});
+      eventObj.addScrollEvent({id: 'card-item-04', style: 'top', startRatio: 0.5, endRatio: 0.7, startValue: 300, endValue: 600, suffix: 'px'});
+      eventObj.addScrollEvent({id: 'card-item-05', style: 'top', startRatio: 0.5, endRatio: 0.7, startValue: 300, endValue: 600, suffix: 'px'});
+      eventObj.addScrollEvent({id: 'card-item-01', style: 'left', startRatio: 0.5, endRatio: 0.7, startValue: 55, endValue: 10, suffix: 'vw'});
+      eventObj.addScrollEvent({id: 'card-item-02', style: 'left', startRatio: 0.5, endRatio: 0.7, startValue: 55, endValue: 30, suffix: 'vw'});
+      eventObj.addScrollEvent({id: 'card-item-03', style: 'left', startRatio: 0.5, endRatio: 0.7, startValue: 55, endValue: 50, suffix: 'vw'});
+      eventObj.addScrollEvent({id: 'card-item-04', style: 'left', startRatio: 0.5, endRatio: 0.7, startValue: 55, endValue: 70, suffix: 'vw'});
+      eventObj.addScrollEvent({id: 'card-item-05', style: 'left', startRatio: 0.5, endRatio: 0.7, startValue: 55, endValue: 90, suffix: 'vw'});
+
+      eventObj.addScrollEventTransform({id: 'card-item-01', transformStyle: [
+        {style: 'translateX', startValue: 0, endValue: -150, suffix: 'px' },
+        {style: 'translateY', startValue: 0, endValue: 0, suffix: 'px' }
+      ], startRatio: 0.5, endRatio: 0.7});
+      eventObj.addScrollEventTransform({id: 'card-item-02', transformStyle: [
+        {style: 'translateX', startValue: 30, endValue: -150, suffix: 'px' },
+        {style: 'translateY', startValue: 20, endValue: 0, suffix: 'px' }
+      ], startRatio: 0.5, endRatio: 0.7});
+      eventObj.addScrollEventTransform({id: 'card-item-03', transformStyle: [
+        {style: 'translateX', startValue: -30, endValue: -150, suffix: 'px' },
+        {style: 'translateY', startValue: 40, endValue: 0, suffix: 'px' }
+      ], startRatio: 0.5, endRatio: 0.7});
+      eventObj.addScrollEventTransform({id: 'card-item-04', transformStyle: [
+        {style: 'translateX', startValue: 50, endValue: -150, suffix: 'px' },
+        {style: 'translateY', startValue: 60, endValue: 0, suffix: 'px' }
+      ], startRatio: 0.5, endRatio: 0.7});
+      eventObj.addScrollEventTransform({id: 'card-item-05', transformStyle: [
+        {style: 'translateX', startValue: -80, endValue: -150, suffix: 'px' },
+        {style: 'translateY', startValue: 80, endValue: 0, suffix: 'px' }
+      ], startRatio: 0.5, endRatio: 0.7});
+
+      eventObj.addScrollEventTransform({id: 'card-item-03', transformStyle: [
+        {style: 'translateX', startValue: -150, endValue: -150, suffix: 'px' },
+        {style: 'scale', startValue: 1, endValue: 10 }
+      ], startRatio: 0.7, endRatio: 0.8});
+      eventObj.addScrollClass({id: 'card-item-03', classList: ['card-on-top'], startRatio: 0.7, endRatio: 1,})
+
+    }
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <section class="main-section scroll-section"></section>
+    <section class="card-section scroll-section">
+      <div class="inner-box">
+        <div id="card-con" class="card-con">
+          <ul class="card-list">
+            <li id="card-item-01" class="card-item"></li>
+            <li id="card-item-02" class="card-item"></li>
+            <li id="card-item-03" class="card-item"></li>
+            <li id="card-item-04" class="card-item"></li>
+            <li id="card-item-05" class="card-item"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div id="card-text-con" class="text-con">
+          <div class="title-con">
+            <h1>Our Future <br/> playgrounds</h1>
+          </div>
+          <div class="sub-title-con">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit explicabo mollitia, minus nisi ea sapiente aliquam? Doloribus eaque nam animi hic, earum nostrum possimus voluptatum! Quam at, quo, error accusamus blanditiis asperiores ullam, perspiciatis corporis repellat exercitationem repudiandae corrupti illum repellendus quia vitae accusantium? Quibusdam fugiat facilis voluptatum sit error!
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bottom-section"></section>
+  </div>
+</body>
+</html>

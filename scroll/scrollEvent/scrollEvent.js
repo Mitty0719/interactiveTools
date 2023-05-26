@@ -36,33 +36,30 @@ class ScrollEvent {
     for(const section of this.scrollSectionList) {
       if(section.haveNode(id)) {
         section.addScrollEvent(options);
-        break;
-      } else {
-        console.error('지정한 id를 가진 node가 없습니다.');
+        return;
       }
     }
+    console.error('지정한 id를 가진 node가 없습니다.');
   }
   addScrollEventTransform(options) {
     const {id} = options;
     for(const section of this.scrollSectionList) {
       if(section.haveNode(id)) {
         section.addScrollEventTransform(options);
-        break;
-      } else {
-        console.error('지정한 id를 가진 node가 없습니다.');
+        return;
       }
     }
+    console.error('지정한 id를 가진 node가 없습니다.');
   }
   addScrollClass(options) {
     const {id} = options;
     for(const section of this.scrollSectionList) {
       if(section.haveNode(id)) {
         section.addScrollClass(options);
-        break;
-      } else {
-        console.error('지정한 id를 가진 node가 없습니다.');
+        return;
       }
     }
+    console.error('지정한 id를 가진 node가 없습니다.');
   }
 }
 
@@ -115,13 +112,13 @@ class ScrollSection {
     const element = this.node.querySelector(`#${id}`);
     const event = function() {
       if(this.ratio < startRatio) {
-        let valueStr = ``;
-        for(const styleItem of transformStyle) {
-          const {style, startValue, suffix} = styleItem;
-          const value = startValue;
-          valueStr += ` ${style}(${value}${suffix || ''})`;
-        }
-        element.style.transform = valueStr;
+        // let valueStr = ``;
+        // for(const styleItem of transformStyle) {
+        //   const {style, startValue, suffix} = styleItem;
+        //   const value = startValue;
+        //   valueStr += ` ${style}(${value}${suffix || ''})`;
+        // }
+        // element.style.transform = valueStr;
       } else if(this.ratio >= startRatio && this.ratio <= endRatio) {
         const ratioPercent = (this.ratio - startRatio) / (endRatio - startRatio);
         let valueStr = ``;
@@ -132,13 +129,13 @@ class ScrollSection {
         }
         element.style.transform = valueStr;
       } else if(this.ratio > endRatio) {
-        let valueStr = ``;
-        for(const styleItem of transformStyle) {
-          const {style, endValue, suffix} = styleItem;
-          const value = endValue;
-          valueStr += ` ${style}(${value}${suffix || ''})`;
-        }
-        element.style.transform = valueStr;
+        // let valueStr = ``;
+        // for(const styleItem of transformStyle) {
+        //   const {style, endValue, suffix} = styleItem;
+        //   const value = endValue;
+        //   valueStr += ` ${style}(${value}${suffix || ''})`;
+        // }
+        // element.style.transform = valueStr;
       }
     }
     this.events.push(event.bind(this));
