@@ -4,6 +4,9 @@ class HorizontalSlider {
     const items = [...container.children];
     const firstItem = items[0].cloneNode(true);
     const lastItem = items[items.length - 1].cloneNode(true);
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(container);
+
     let index = -1;
     let isMoving = false;
 
@@ -146,6 +149,7 @@ class HorizontalSlider {
       for(const item of sliderItems) {
         item.style.width = itemWidth + 'px';
       } 
+      sliderList.style.left = itemWidth * index + 'px';
     }
   }
 }
